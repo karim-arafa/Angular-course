@@ -1,0 +1,14 @@
+<div class="row p-2">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="user Name" [(ngModel)]="userName" 
+        
+        (input) = "onInput()"
+        />
+        <div class="input-group-append">
+        <input type="button" class="btn btn-outline-primary" value="login" [disabled]="userName === '' "
+        (click) = "onClick()"
+        >
+    </div>
+    </div>
+    <p>{{ userName }}</p>
+</div>
