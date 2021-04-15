@@ -1,0 +1,29 @@
+<p>courses works!</p>
+<router-outlet></router-outlet>
+<form #CourseForm="ngForm" (ngSubmit)="onSubmit(CourseForm)">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="title">title</label>
+            <input type="text" class="form-control" name="title" #titleRef="ngModel" ngModel required>
+            <div class="alert alert-danger" *ngIf="titleRef.dirty && titleRef.invalid">
+                title is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="title">instructor</label>
+            <input type="text" class="form-control" name="instructor" #intsRef="ngModel" ngModel required>
+            <div class="alert alert-danger" *ngIf="intsRef.dirty && intsRef.invalid">
+                instructor is required
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="isAvailable" ngModel required>
+            <label for="" class="form-check-label">is Available</label>
+        </div>
+    </div>
+    <button class="btn" type="submit" [ngClass]="{'btn-success': CourseForm.form.valid,
+                'btn-default': CourseForm.form.invalid}" [disabled]="CourseForm.form.invalid">Create</button>
+</form>
