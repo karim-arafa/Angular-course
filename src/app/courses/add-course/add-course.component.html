@@ -1,0 +1,61 @@
+<div class="row" *ngIf="errors?.length">
+    <div class="alert alert-danger" *ngFor="let error of errors">
+      {{ error }}
+    </div>
+  </div>
+  
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit(courseForm)">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" formControlName="title" />
+  
+        <div
+          class="alert alert-danger p-1 mt-1"
+          *ngIf="
+            courseForm.get('title').dirty &&
+            courseForm.get('title').hasError('required')
+          "
+        >
+          Title is required.
+        </div>
+      </div>
+  
+      <div class="form-group col-md-6">
+        <label for="title">Instructor</label>
+        <input type="text" class="form-control" formControlName="instructor" />
+        <div
+          class="alert alert-danger p-1 mt-1"
+          *ngIf="
+            courseForm.get('instructor').dirty &&
+            courseForm.get('instructor').hasError('required')
+          "
+        >
+          Instructor is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="isAvailabel"
+          />
+          <label for="isAvailabel" class="form-check-label">Availabel</label>
+        </div>
+      </div>
+    </div>
+  
+    <button
+      class="btn"
+      [ngClass]="{
+        'btn-outline-success': courseForm.valid,
+        'btn-outline-default': courseForm.invalid
+      }"
+      type="submit"
+      [disabled]="courseForm.invalid"
+    >
+      Save
+    </button>
+  </form>
+  

@@ -1,6 +1,19 @@
-<p>courses works!</p>
+<div class="row p-2 mb-1">
+    <div class="col-3">
+      <h3>Courses</h3>
+    </div>
+    <div class="col-6"></div>
+    <div class="col-3">
+      <a
+        [routerLink]="['/courses', 'new']"
+        class="btn btn-outline-primary btn-lg btn-block"
+      >
+        add New 
+      </a>
+    </div>
+  </div>
 <router-outlet></router-outlet>
-<form #CourseForm="ngForm" (ngSubmit)="onSubmit(CourseForm)">
+<!-- <form #CourseForm="ngForm" (ngSubmit)="onSubmit(CourseForm)">
     <div class="form-row">
         <div class="form-group">
             <label for="title">title</label>
@@ -26,4 +39,4 @@
     </div>
     <button class="btn" type="submit" [ngClass]="{'btn-success': CourseForm.form.valid,
                 'btn-default': CourseForm.form.invalid}" [disabled]="CourseForm.form.invalid">Create</button>
-</form>
+</form> -->

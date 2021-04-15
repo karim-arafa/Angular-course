@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses.component';
 import { CourseFormComponent } from '../course-form/course-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes} from '@angular/router';
+import { CoursesListComponent } from './courses-list/courses-list.component';
+import { AddCourseComponent } from './add-course/add-course.component';
 
 const routes: Routes = [
   {
@@ -26,13 +28,16 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CoursesComponent
+    CoursesComponent,
+    CoursesListComponent,
+    AddCourseComponent
   ],
   imports: [
     CommonModule,
     CoursesRoutingModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CoursesModule { }
